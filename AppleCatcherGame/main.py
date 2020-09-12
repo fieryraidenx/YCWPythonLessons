@@ -147,7 +147,7 @@ def endGame(pname):
     
     #the final message
     gameOverText = Text(0, 0, "red")
-    gameOverText.write("{} WINS!!!".format(pname), align="center", font="Arial 128")
+    gameOverText.write("{} WINS!!!".format(pname), align="center", font="Arial 64")
 
 
 
@@ -158,9 +158,9 @@ while runGame:
     window.update()
     #check for collisions with food or wall
     for player in playerlist:
+        player.checkNearWall()
         for food in foodlist:
             player.checkCollisions(food)
-            player.checkNearWall()
 
     
     #update score and check if game over(zip allows us to loop through 2 equal sized arrays at once)
